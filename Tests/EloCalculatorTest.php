@@ -39,7 +39,7 @@ class EloCalculatorTest extends TestCase
 
         $this->calculator->calculate($game);
 
-        self::assertEquals(1771, $game->getBlackElo());
+        self::assertEquals(1762, $game->getBlackElo());
     }
 
     /**
@@ -72,10 +72,10 @@ class EloCalculatorTest extends TestCase
     {
         $methodName = 'getCoefficientByGamesCount';
 
-        self::assertEquals(30, $this->invokePrivateMethod($methodName, [5]));
-        self::assertEquals(30, $this->invokePrivateMethod($methodName, [2]));
-        self::assertEquals(25, $this->invokePrivateMethod($methodName, [10]));
-        self::assertEquals(20, $this->invokePrivateMethod($methodName, [20]));
+        self::assertEquals(40, $this->invokePrivateMethod($methodName, [5]));
+        self::assertEquals(40, $this->invokePrivateMethod($methodName, [2]));
+        self::assertEquals(35, $this->invokePrivateMethod($methodName, [10]));
+        self::assertEquals(30, $this->invokePrivateMethod($methodName, [20]));
     }
 
     /**

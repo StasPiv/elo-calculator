@@ -18,11 +18,11 @@ class EloCalculator
      * @var array
      */
     private static $coefficientMap = [
-        5 => 30,
-        10 => 25,
+        5 => 40,
+        10 => 35,
     ];
 
-    const DEFAULT_COEFFICIENT = 20;
+    const DEFAULT_COEFFICIENT = 30;
 
     /**
      * Calculates new elo.
