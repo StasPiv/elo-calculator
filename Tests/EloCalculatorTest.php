@@ -63,6 +63,7 @@ class EloCalculatorTest extends TestCase
         self::assertEquals(2200, $this->invokePrivateMethod($methodName, [2200, 0.5, 0.5, 30]));
         self::assertEquals(2215, $this->invokePrivateMethod($methodName, [2200, 1, 0.5, 30]));
         self::assertEquals(2210, $this->invokePrivateMethod($methodName, [2200, 1, 0.5, 20]));
+        self::assertEquals(2221, $this->invokePrivateMethod($methodName, [2207, 1, 0.44, 25]));
     }
 
     /**

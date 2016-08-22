@@ -77,7 +77,7 @@ class EloCalculator
      */
     private function calculateMyNewElo(int $myRating, float $actualValue, float $expectedValue, int $coefficient): int
     {
-        return $myRating + $coefficient * ($actualValue - $expectedValue);
+        return round($myRating + $coefficient * ($actualValue - $expectedValue));
     }
 
     /**
