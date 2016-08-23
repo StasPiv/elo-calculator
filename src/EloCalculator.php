@@ -17,12 +17,26 @@ class EloCalculator
     /**
      * @var array
      */
-    private static $coefficientMap = [
-        5 => 40,
-        10 => 35,
-    ];
+    private $coefficientMap = [];
 
-    const DEFAULT_COEFFICIENT = 30;
+    private $defaultCoefficient;
+
+    /**
+     * EloCalculator constructor.
+     *
+     * @param array $coefficientMap
+     * @param int   $defaultCoefficient
+     */
+    public function __construct(
+        array $coefficientMap = [
+            5 => 40,
+            10 => 35,
+        ],
+        $defaultCoefficient = 30
+    ) {
+        $this->coefficientMap = $coefficientMap;
+        $this->defaultCoefficient = $defaultCoefficient;
+    }
 
     /**
      * Calculates new elo.
@@ -87,12 +101,28 @@ class EloCalculator
      */
     private function getCoefficientByGamesCount(int $gamesCount): int
     {
-        foreach (self::$coefficientMap as $coefficientCount => $coefficient) {
+        foreach ($this->getCoefficientMap() as $coefficientCount => $coefficient) {
             if ($gamesCount <= $coefficientCount) {
                 return $coefficient;
             }
         }
 
-        return self::DEFAULT_COEFFICIENT;
+        return $this->getDefaultCoefficient();
+    }
+
+    /**
+     * @return array
+     */
+    public function getCoefficientMap(): array
+    {
+        return $this->coefficientMap;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDefaultCoefficient(): int
+    {
+        return $this->defaultCoefficient;
     }
 }
